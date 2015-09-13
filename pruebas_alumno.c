@@ -8,6 +8,6 @@
  *                   PRUEBAS UNITARIAS ALUMNO
  * *****************************************************************/
 
-void prueba_cola_alumno() {
+void pruebas_cola_alumno() {
     
 }
