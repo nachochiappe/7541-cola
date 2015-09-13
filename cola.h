@@ -37,7 +37,7 @@ bool cola_esta_vacia(const cola_t *cola);
 // Pre: la cola fue creada.
 // Post: se agregó un nuevo elemento a la cola, valor se encuentra al final
 // de la cola.
-bool cola_encolar(cola_t *cola, const void* valor);
+bool cola_encolar(cola_t *cola, void* valor);
 
 // Obtiene el valor del primer elemento de la cola. Si la cola tiene
 // elementos, se devuelve el valor del primero, si está vacía devuelve NULL.
