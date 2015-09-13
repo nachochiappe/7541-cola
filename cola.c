@@ -16,6 +16,19 @@ struct cola {
 	int tamano;
 };
 
+/* Función auxiliar para crear un nuevo nodo */
+
+nodo_t* nodo_crear(void* valor){
+	nodo_t* nodo = malloc(sizeof(nodo_t));
+	if (nodo == NULL) {
+		return NULL;
+	}
+	nodo->valor = valor;
+	nodo_t* ref = NULL;
+	nodo->ref = ref;
+	return nodo;
+}
+
 /* *****************************************************************
  *                    PRIMITIVAS DE LA COLA
  * *****************************************************************/
