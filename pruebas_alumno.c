@@ -17,7 +17,7 @@ void pruebas_cola_alumno() {
 	print_test("Prueba ver primero cola vacia", (cola_ver_primero(cola) == NULL));
 	
 	// Prueba cola está vacía después de crearla
-	print_test("Prueba cola está vacía después de crearla", (cola_esta_vacia(cola) == NULL));
+	print_test("Prueba cola esta vacia despues de crearla", (cola_esta_vacia(cola) == true));
 
 	// Prueba encolar un elemento
 	int a = 1;
@@ -42,7 +42,7 @@ void pruebas_cola_alumno() {
 	print_test("Prueba desencolar un elemento", (cola_desencolar(cola) == p_a));
 	
 	// Prueba ver primero cola con elementos
-	print_test("Prueba ver primero cola con elementos", (cola_ver_primero(cola) == p_b);
+	print_test("Prueba ver primero cola con elementos", (cola_ver_primero(cola) == p_b));
 	
 	// Prueba desencolar todos los elementos
 	void* elemento;
@@ -53,7 +53,7 @@ void pruebas_cola_alumno() {
 	print_test("Prueba desencolar todos los elementos", (elemento == p_e));
 
 	// Prueba cola está vacía después de desencolar todos
-	print_test("Prueba cola esta vacia despues de desencolar todos", (cola_esta_vacia(cola) == NULL));
+	print_test("Prueba cola esta vacia despues de desencolar todos", (cola_esta_vacia(cola) == true));
 
 	// Prueba desencolar cola vacía
 	print_test("Prueba desencolar cola vacia", (cola_desencolar(cola) == NULL));
