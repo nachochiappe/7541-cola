@@ -91,20 +91,20 @@ void* cola_ver_primero(const cola_t *cola) {
 	if (cola_esta_vacia(cola)) {
 		return NULL;
 	}
-    void* primero = (cola->primero)->valor;
-    return primero;
+	void* primero = (cola->primero)->valor;
+	return primero;
 }
 
 void* cola_desencolar(cola_t *cola) {
 	if (cola_esta_vacia(cola)) {
 		return NULL;
 	}
-    nodo_t* nodo_aux = NULL;
-    void* elemento = (cola->primero)->valor;
-    nodo_aux = cola->primero;
+	nodo_t* nodo_aux = NULL;
+	void* elemento = (cola->primero)->valor;
+	nodo_aux = cola->primero;
 	cola->primero = (cola->primero)->ref;
-    free(nodo_aux);
+	free(nodo_aux);
 	cola->tamano -= 1;
-    return elemento;
+	return elemento;
 }
 

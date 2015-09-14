@@ -15,7 +15,7 @@ void destruir_dato(void* dato) {
  * *****************************************************************/
 
 void pruebas_cola_alumno() {
-    // Prueba crear cola
+	// Prueba crear cola
 	cola_t* cola;
 	print_test("Prueba crear cola", (cola = cola_crear()));
 	
