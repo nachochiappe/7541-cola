@@ -2,7 +2,13 @@
 #include "testing.h"
 #include <stddef.h>
 #include <stdio.h>
+#include "pila.h"
 
+/* Función auxiliar para destruir los datos de una pila */
+
+void destruir_dato(void* dato) {
+	pila_destruir((pila_t*)dato);
+}
 
 /* ******************************************************************
  *                   PRUEBAS UNITARIAS ALUMNO
@@ -61,11 +67,21 @@ void pruebas_cola_alumno() {
 	// Prueba destruir cola con elementos
 	cola_destruir(cola, NULL);
 
-	/*
-	// Prueba destruir cola vacía
-	print_test("Prueba destruir cola vacía", );
-
 	// Prueba destruir cola de pilas
-	print_test("Prueba destruir cola de pilas", );
-	*/
+	// Genero pila
+	pila_t* pila = pila_crear();
+	pila_t* pila2 = pila_crear();
+	// Apilo todos los elementos
+	pila_apilar(pila, p_a);
+	pila_apilar(pila, p_b);
+	pila_apilar(pila, p_c);
+	pila_apilar(pila2, p_d);
+	pila_apilar(pila2, p_e);
+	// Genero cola nueva
+	cola_t* cola2 = cola_crear();
+	// Encolo las pilas
+	cola_encolar(cola2, pila);
+	cola_encolar(cola2, pila2);
+	//Destruyo la cola de pilas
+	cola_destruir(cola2, (*destruir_dato));
 }
