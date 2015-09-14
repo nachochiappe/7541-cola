@@ -79,11 +79,10 @@ bool cola_encolar(cola_t *cola, void* valor) {
 	nodo_t* nuevo_nodo = nodo_crear(valor);
 	if (cola->tamano == 0){
 		cola->primero = nuevo_nodo;
-		cola->ultimo = nuevo_nodo;
 	} else {
 		(cola->ultimo)->ref = nuevo_nodo;
-		cola->ultimo = nuevo_nodo; 
 	}
+	cola->ultimo = nuevo_nodo;
 	cola->tamano += 1;
 	return true;
 }
