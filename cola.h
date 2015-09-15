@@ -65,6 +65,8 @@ void* cola_desencolar(cola_t *cola);
 //
 // Para la implementación de las pruebas se debe emplear la función
 // print_test(), como se ha visto en TPs anteriores.
-void pruebas_cola_alumno(void);
+void pruebas_cola_vacia(void);
+void pruebas_cola_con_elementos(void);
+void pruebas_cola_de_pilas(void);
 
 #endif // COLA_H
