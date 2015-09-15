@@ -4,7 +4,9 @@
 #include <stdio.h>
 #include "pila.h"
 
-/* FunciÛn auxiliar para destruir los datos de una pila */
+#define MAX_VOLUMEN 1000
+
+/* Funci√≥n auxiliar para destruir los datos de una pila */
 
 void destruir_dato(void* dato) {
 	pila_destruir((pila_t*)dato);
@@ -19,10 +21,10 @@ void pruebas_cola_alumno() {
 	cola_t* cola;
 	print_test("Prueba crear cola", (cola = cola_crear()));
 	
-	// Prueba ver primero cola vacÌa
+	// Prueba ver primero cola vac√≠a
 	print_test("Prueba ver primero cola vacia", (cola_ver_primero(cola) == NULL));
 	
-	// Prueba cola est· vacÌa despuÈs de crearla
+	// Prueba cola est√° vac√≠a despu√©s de crearla
 	print_test("Prueba cola esta vacia despues de crearla", (cola_esta_vacia(cola) == true));
 
 	// Prueba encolar un elemento
@@ -58,13 +60,13 @@ void pruebas_cola_alumno() {
 	elemento = cola_desencolar(cola);
 	print_test("Prueba desencolar todos los elementos", (elemento == p_e));
 
-	// Prueba cola est· vacÌa despuÈs de desencolar todos
+	// Prueba cola est√° vac√≠a despu√©s de desencolar todos
 	print_test("Prueba cola esta vacia despues de desencolar todos", (cola_esta_vacia(cola) == true));
 
-	// Prueba desencolar cola vacÌa
+	// Prueba desencolar cola vac√≠a
 	print_test("Prueba desencolar cola vacia", (cola_desencolar(cola) == NULL));
 
-	// Prueba destruir cola con elementos
+	// Prueba destruir cola
 	cola_destruir(cola, NULL);
 
 	// Prueba destruir cola de pilas
