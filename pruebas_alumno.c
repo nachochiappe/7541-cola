@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include "pila.h"
 
+#define MAX_VOLUMEN 50000
+
 /* Función auxiliar para destruir los datos de una pila */
 
 void destruir_dato(void* dato) {
@@ -63,6 +65,30 @@ void pruebas_cola_con_elementos() {
 	print_test("La cola fue destruida", true);
 }
 
+void pruebas_cola_volumen() {
+	printf("\nINICIO DE PRUEBAS DE VOLUMEN\n");
+	
+	/* Declaro las variables a utilizar*/
+	cola_t* cola = cola_crear();
+	int a = 1;
+	int* p_a = &a;
+	
+	/* Inicio de pruebas */
+	for (int i = 1; i <= MAX_VOLUMEN; i++) {
+		cola_encolar(cola, p_a);
+	}
+	print_test("Prueba cola NO esta vacia despues de encolar", !cola_esta_vacia(cola));
+	
+	for (int i = 1; i <= MAX_VOLUMEN; i++) {
+		cola_desencolar(cola);
+	}
+	print_test("Prueba cola esta vacia despues de desencolar todos", cola_esta_vacia(cola));
+	
+	/* Destruyo la cola */
+	cola_destruir(cola, NULL);
+	print_test("La cola fue destruida", true);
+}
+
 void pruebas_cola_de_pilas() {
 	printf("\nINICIO DE PRUEBAS CON COLA DE PILAS\n");
 	
@@ -90,6 +116,6 @@ void pruebas_cola_de_pilas() {
 	print_test("Prueba encolar pila 2", cola_encolar(cola, pila2));
 	
 	/* Destruyo la cola */
-	cola_destruir(cola, (*destruir_dato));
+	cola_destruir(cola, destruir_dato);
 	print_test("La cola fue destruida", true);
 }

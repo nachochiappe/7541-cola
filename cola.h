@@ -67,6 +67,7 @@ void* cola_desencolar(cola_t *cola);
 // print_test(), como se ha visto en TPs anteriores.
 void pruebas_cola_vacia(void);
 void pruebas_cola_con_elementos(void);
+void pruebas_cola_volumen(void);
 void pruebas_cola_de_pilas(void);
 
 #endif // COLA_H
