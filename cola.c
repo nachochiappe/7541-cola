@@ -1,7 +1,5 @@
 #include "cola.h"
 #include <stdlib.h>
-#include <stdio.h>
-
 
 typedef struct nodo {
 	void* valor;
@@ -82,9 +80,8 @@ void* cola_ver_primero(const cola_t *cola) {
 void* cola_desencolar(cola_t *cola) {
 	if (cola_esta_vacia(cola))
 		return NULL;
-	nodo_t* nodo_aux = NULL;
+	nodo_t* nodo_aux = cola->primero;
 	void* elemento = (cola->primero)->valor;
-	nodo_aux = cola->primero;
 	cola->primero = (cola->primero)->ref;
 	free(nodo_aux);
 	cola->tamano -= 1;
