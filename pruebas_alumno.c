@@ -8,8 +8,8 @@
 
 /* Función auxiliar para destruir los datos de una pila */
 
-void destruir_dato(void* dato) {
-	pila_destruir((pila_t*)dato);
+void pila_destruir_wrapper(void* pila) {
+	pila_destruir((pila_t*) pila);
 }
 
 /* ******************************************************************
@@ -116,6 +116,6 @@ void pruebas_cola_de_pilas() {
 	print_test("Prueba encolar pila 2", cola_encolar(cola, pila2));
 	
 	/* Destruyo la cola */
-	cola_destruir(cola, destruir_dato);
+	cola_destruir(cola, pila_destruir_wrapper);
 	print_test("La cola fue destruida", true);
 }
