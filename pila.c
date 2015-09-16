@@ -40,10 +40,11 @@ bool pila_esta_vacia(const pila_t *pila) {
 
 bool pila_apilar(pila_t *pila, void* valor) {
 	if (pila->largo == pila->tam) {
-		void **datos_nuevo = pila->datos;
-		pila->datos = realloc(pila->datos, (pila->tam + TAMANO) * sizeof(void*));
-		if (!pila->datos)
+		void **datos_nuevo = realloc(pila->datos, (pila->tam + TAMANO) * sizeof(void*));
+		if (!datos_nuevo) {
+			free(pila->datos);
 			return false;
+		}
 		pila->datos = datos_nuevo;
 		pila->tam += TAMANO;
 	}
@@ -64,10 +65,11 @@ void* pila_desapilar(pila_t *pila) {
 	if (elemento) {
 		pila->largo -= 1;
 		if ((pila->tam - pila->largo == TAMANO) && (pila->largo > 0)) {
-			void **datos_nuevo = pila->datos;
-			pila->datos = realloc(pila->datos, (pila->tam - TAMANO) * sizeof(void*));
-			if (!pila->datos)
+			void **datos_nuevo = realloc(pila->datos, (pila->tam - TAMANO) * sizeof(void*));
+			if (!datos_nuevo) {
+				free(pila->datos);
 				return NULL;
+			}
 			pila->datos = datos_nuevo;
 			pila->tam -= TAMANO;
 		}
