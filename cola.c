@@ -45,19 +45,11 @@ cola_t* cola_crear(void) {
 }
 
 void cola_destruir(cola_t *cola, void destruir_dato(void*)) {
-	if (!cola)
-		return;
-	if (!cola->primero){
-		free(cola);
-		return;
-	}
 	void* elemento;
-	int i;
-	for (i=0; i < cola->tamano; i++){
+	while (!cola_esta_vacia(cola)) {
 		elemento = cola_desencolar(cola);
-		if (destruir_dato){
-			destruir_dato(elemento);	
-		}
+		if (destruir_dato)
+			destruir_dato(elemento);
 	}
 	free(cola);
 }
