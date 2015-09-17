@@ -119,3 +119,10 @@ void pruebas_cola_de_pilas() {
 	cola_destruir(cola, pila_destruir_wrapper);
 	print_test("La cola fue destruida", true);
 }
+
+void pruebas_cola_alumno() {
+	pruebas_cola_vacia();
+	pruebas_cola_con_elementos();
+	pruebas_cola_volumen();
+	pruebas_cola_de_pilas();
+}
